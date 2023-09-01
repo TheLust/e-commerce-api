@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ICategoryService {
-    public abstract Optional<Category> findById(Long id);
-    public abstract Optional<Category> findByName(String name);
-    public abstract List<Category> findAll();
-    public abstract void save(Category category);
-    public abstract void update(Category category, Category updatedCategory);
-    public abstract void delete(Long id);
+    Optional<Category> findById(Long id);
+    Optional<Category> findByName(String name);
+    List<Category> findAll();
+    void save(Category category);
+    void update(Category category, Category updatedCategory);
+    void delete(Long id);
 }

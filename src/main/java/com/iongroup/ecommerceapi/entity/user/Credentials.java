@@ -22,7 +22,7 @@ public class Credentials {
     private Long id;
 
     @OneToOne(mappedBy = "credentials")
-    private Customer customer;
+    private User user;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

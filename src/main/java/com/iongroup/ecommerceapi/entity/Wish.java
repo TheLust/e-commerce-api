@@ -1,7 +1,7 @@
 package com.iongroup.ecommerceapi.entity;
 
 import com.iongroup.ecommerceapi.entity.product.Product;
-import com.iongroup.ecommerceapi.entity.user.Customer;
+import com.iongroup.ecommerceapi.entity.user.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Wishlist {
+public class Wish {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Wishlist {
 
     @NotNull
     @ManyToOne
-    private Customer customer;
+    private User user;
 
     @NotNull
     @ManyToOne

@@ -1,6 +1,6 @@
 package com.iongroup.ecommerceapi.entity;
 
-import com.iongroup.ecommerceapi.entity.user.Customer;
+import com.iongroup.ecommerceapi.entity.user.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +30,7 @@ public class Order {
 
     @NotNull
     @ManyToOne
-    private Customer customer;
+    private User user;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;

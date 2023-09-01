@@ -3,7 +3,7 @@ package com.iongroup.ecommerceapi.entity.user;
 import com.iongroup.ecommerceapi.entity.Cart;
 import com.iongroup.ecommerceapi.entity.Order;
 import com.iongroup.ecommerceapi.entity.Review;
-import com.iongroup.ecommerceapi.entity.Wishlist;
+import com.iongroup.ecommerceapi.entity.Wish;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -11,10 +11,10 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity
+@Entity(name = "_user")
 @Getter
 @Setter
-public class Customer {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,20 +24,20 @@ public class Customer {
     @OneToOne
     private Credentials credentials;
 
-    @OneToOne
-    private CustomerAddress address;
+    @OneToMany(mappedBy = "user")
+    private List<Address> addresses;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "user")
     private List<Order> orders;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "user")
     private List<Cart>  carts;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "user")
     private List<Review> reviews;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Wishlist> wishlist;
+    @OneToMany(mappedBy = "user")
+    private List<Wish> wish;
 
     @Column(unique = true, nullable = false)
     private String username;

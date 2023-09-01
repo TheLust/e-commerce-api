@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IProductService {
-    public abstract Optional<Product> findById(Long id);
-    public abstract List<Product> findAll();
-    public abstract void save(Product product);
-    public abstract void update(Product product, Category updatedProduct);
-    public abstract void delete(Long id);
+    Optional<Product> findById(Long id);
+    List<Product> findAll();
+    Product save(Product product) throws InterruptedException;
+    void update(Product product, Category updatedProduct);
+    void delete(Long id);
 }

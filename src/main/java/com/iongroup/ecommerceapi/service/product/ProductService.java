@@ -7,6 +7,7 @@ import com.iongroup.ecommerceapi.service.interfaces.product.IProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,15 +28,16 @@ public class ProductService implements IProductService {
         return productRepository.findAll();
     }
 
+
     @Override
-    public void save(Product product) {
-        productRepository.save(product);
+    public Product save(Product product) throws InterruptedException {
+        return productRepository.save(product);
     }
 
     @Override
     public void update(Product product, Category updatedProduct) {
         BeanUtils.copyProperties(updatedProduct, product,
-                "id", "inventory", "category", "orderItems", "cartItems", "reviews", "wishlist");
+                "id", "category", "orderItems", "cartItems", "reviews", "wishlist");
         productRepository.save(product);
     }
 
